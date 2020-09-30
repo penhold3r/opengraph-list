@@ -1,11 +1,12 @@
 module.exports = [
-	'http://aldodonnantuoni.com/',
 	'http://buildup.com.ar/',
 	'http://eurolam.cl/',
 	'http://maipumed.com/',
 	'http://www.silvagarramuno.com/',
 	'http://valeriooliva.com/',
+	'https://aldodonnantuoni.com/',
 	'https://alpamanta.com/es',
+	'https://andestination.com/',
 	'https://argentinaproduce.com/',
 	'https://canepamartin.com/',
 	'https://casirdossantos.com/',
@@ -19,5 +20,6 @@ module.exports = [
 	'http://logshipping.com.ar/',
 	'http://olivaresdonignacio.com/',
 	'https://piuquenchocolates.com/',
+	'https://qatarpremiumwine.com/',
 	'https://solplayargentina.com/',
 ]
