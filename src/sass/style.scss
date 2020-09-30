@@ -43,13 +43,17 @@ body {
 			}
 
 			.title {
-				color: white;
 				font-weight: 700;
 				letter-spacing: 0.1rem;
 				margin: 0 auto 1rem;
 				text-transform: uppercase;
 				max-width: $max-width;
 				text-align: center;
+
+				a {
+					color: white;
+					text-decoration: none;
+				}
 			}
 
 			.lead {
@@ -142,6 +146,18 @@ body {
 						margin: 1.25rem 0 0 0;
 					}
 				}
+			}
+		}
+
+		footer {
+			background: $dark;
+			padding: 1.5rem 1rem;
+
+			p {
+				margin: 0 auto;
+				max-width: $max-width;
+				color: #5b7274;
+				text-align: center;
 			}
 		}
 	}

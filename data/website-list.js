@@ -1,4 +1,4 @@
-export default [
+module.exports = [
 	'http://aldodonnantuoni.com/',
 	'http://buildup.com.ar/',
 	'http://eurolam.cl/',
