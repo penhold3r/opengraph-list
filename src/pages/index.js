@@ -45,30 +45,37 @@ const IndexPage = () => {
 				{!sites ? (
 					<div>Cargando...</div>
 				) : (
-					sites.map(site => {
-						const siteUrl = site.ogUrl || site.requestUrl
-						const img = site.ogImage ? site.ogImage.url : null
-						const imgUrl =
-							img && img.startsWith('/') ? `${siteUrl.replace(/\/$/, '')}${img}` : img
+					sites
+						.sort((a, b) => {
+							const titleA = a.ogSiteName || a.ogTitle
+							const titleB = b.ogSiteName || b.ogTitle
 
-						return (
-							<div
-								className='site-card'
-								key={site.ogTitle}
-								style={{ borderColor: site.themeColor || borderColor }}>
-								<a href={siteUrl} target='_blank' rel='noopener noreferrer'>
-									<div className='site-card__image'>
-										<img src={imgUrl} alt='' />
-									</div>
-									<div className='site-card__details'>
-										<h3 className='site-name'>{site.ogSiteName || site.ogTitle}</h3>
-										<p className='site-description'>{site.ogDescription}</p>
-										<p className='site-url'>{siteUrl}</p>
-									</div>
-								</a>
-							</div>
-						)
-					})
+							return titleA.localCompare(titleB)
+						})
+						.map(site => {
+							const siteUrl = site.ogUrl || site.requestUrl
+							const img = site.ogImage ? site.ogImage.url : null
+							const imgUrl =
+								img && img.startsWith('/') ? `${siteUrl.replace(/\/$/, '')}${img}` : img
+
+							return (
+								<div
+									className='site-card'
+									key={site.ogSiteName || site.ogTitle}
+									style={{ borderColor: site.themeColor || borderColor }}>
+									<a href={siteUrl} target='_blank' rel='noopener noreferrer'>
+										<div className='site-card__image'>
+											<img src={imgUrl} alt='' />
+										</div>
+										<div className='site-card__details'>
+											<h3 className='site-name'>{site.ogSiteName || site.ogTitle}</h3>
+											<p className='site-description'>{site.ogDescription}</p>
+											<p className='site-url'>{siteUrl}</p>
+										</div>
+									</a>
+								</div>
+							)
+						})
 				)}
 			</div>
 		</Layout>
