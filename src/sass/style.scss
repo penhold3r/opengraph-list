@@ -24,8 +24,6 @@ body {
 	min-height: 100vh;
 
 	.main {
-		margin: 0 0 2rem;
-
 		.main-header {
 			border-bottom: 3px solid $dark;
 			padding: 2rem 1rem;
@@ -82,7 +80,7 @@ body {
 			display: grid;
 			gap: 1.5rem;
 			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-			margin: 2rem auto;
+			margin: 2rem auto 4rem;
 			max-width: $max-width;
 			padding: 0 1rem;
 
