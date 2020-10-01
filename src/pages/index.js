@@ -11,19 +11,18 @@ const IndexPage = () => {
 		graphql`
 			query {
 				openGraph {
-					id
 					sites {
-						success
-						ogTitle
-						requestUrl
-						themeColor
+						title
+						theme_color
 						ogSiteName
+						ogTitle
 						ogUrl
-						ogType
 						ogDescription
-						ogImage {
-							url
-						}
+						ogImage
+						ogImageUrl
+						requestUrl
+						description
+						Description
 					}
 				}
 			}
@@ -47,29 +46,31 @@ const IndexPage = () => {
 				) : (
 					sites
 						.sort((a, b) => {
-							const titleA = a.ogSiteName || a.ogTitle
-							const titleB = b.ogSiteName || b.ogTitle
+							const titleA = a.ogSiteName || a.title
+							const titleB = b.ogSiteName || b.title
 
-							return titleA.localCompare(titleB)
+							return titleA.localeCompare(titleB)
 						})
 						.map(site => {
 							const siteUrl = site.ogUrl || site.requestUrl
-							const img = site.ogImage ? site.ogImage.url : null
+							const img = site.ogImage
 							const imgUrl =
 								img && img.startsWith('/') ? `${siteUrl.replace(/\/$/, '')}${img}` : img
+
+							const siteDesc = site.Description || site.description || site.ogDescription
 
 							return (
 								<div
 									className='site-card'
-									key={site.ogSiteName || site.ogTitle}
-									style={{ borderColor: site.themeColor || borderColor }}>
+									key={site.ogSiteName || site.title}
+									style={{ borderColor: site.theme_color || borderColor }}>
 									<a href={siteUrl} target='_blank' rel='noopener noreferrer'>
 										<div className='site-card__image'>
 											<img src={imgUrl} alt='' />
 										</div>
 										<div className='site-card__details'>
-											<h3 className='site-name'>{site.ogSiteName || site.ogTitle}</h3>
-											<p className='site-description'>{site.ogDescription}</p>
+											<h3 className='site-name'>{site.ogSiteName || site.title}</h3>
+											<p className='site-description'>{siteDesc}</p>
 											<p className='site-url'>{siteUrl}</p>
 										</div>
 									</a>

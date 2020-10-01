@@ -9,7 +9,7 @@ module.exports = [
 	'https://aldodonnantuoni.com/',
 	'https://alpamanta.com/es',
 	'https://andestination.com/',
-	'https://argentinaproduce.com/',
+	'https://argentinaproduce.com/en',
 	'https://canepamartin.com/',
 	'https://casirdossantos.com/',
 	'https://dhemos.com/',
