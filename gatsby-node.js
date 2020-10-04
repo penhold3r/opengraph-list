@@ -6,8 +6,10 @@ const list = require('./data/website-list')
 exports.sourceNodes = async ({ actions: { createNode }, createNodeId, createContentDigest }) => {
 	const opengraph = []
 
+	const cors = 'https://cors-anywhere.herokuapp.com/'
+
 	list.forEach(site => {
-		const query = extract({ uri: site }).then(res => {
+		const query = extract({ uri: cors + site }).then(res => {
 			return { ...res, requestUrl: site }
 		})
 		opengraph.push(query)
