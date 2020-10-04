@@ -1,7 +1,7 @@
 module.exports = [
 	'http://buildup.com.ar/',
 	'http://eurolam.cl/',
-	'http://logshipping.com.ar/',
+	'http://logshipping.com.ar/es',
 	'http://maipumed.com/',
 	'http://olivaresdonignacio.com/',
 	'http://valeriooliva.com/',
@@ -19,7 +19,6 @@ module.exports = [
 	'https://piuquenchocolates.com/',
 	'https://productosmardegan.com/',
 	'https://qatarpremiumwine.com/',
-	'https://solplayargentina.com/',
 	'https://sourceandtarget.com/',
 	'https://yogaporloscaminosdelvino.com.ar/',
 ]

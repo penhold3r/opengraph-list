@@ -46,12 +46,13 @@ const IndexPage = () => {
 				) : (
 					sites
 						.sort((a, b) => {
-							const titleA = a.ogSiteName || a.title
-							const titleB = b.ogSiteName || b.title
+							const titleA = a.ogSiteName || a.ogTitle || a.title
+							const titleB = b.ogSiteName || b.ogTitle || b.title
 
 							return titleA.localeCompare(titleB)
 						})
 						.map(site => {
+							const cors = 'https://cors-anywhere.herokuapp.com/'
 							const siteUrl = site.ogUrl || site.requestUrl
 							const img = site.ogImage
 							const imgUrl =
@@ -62,14 +63,16 @@ const IndexPage = () => {
 							return (
 								<div
 									className='site-card'
-									key={site.ogSiteName || site.title}
+									key={site.ogSiteName || site.ogTitle || site.title}
 									style={{ borderColor: site.theme_color || borderColor }}>
 									<a href={siteUrl} target='_blank' rel='noopener noreferrer'>
 										<div className='site-card__image'>
-											<img src={imgUrl} alt='' />
+											<img src={`${imgUrl}`} alt='' />
 										</div>
 										<div className='site-card__details'>
-											<h3 className='site-name'>{site.ogSiteName || site.title}</h3>
+											<h3 className='site-name'>
+												{site.ogSiteName || site.ogTitle || site.title}
+											</h3>
 											<p className='site-description'>{siteDesc}</p>
 											<p className='site-url'>{siteUrl}</p>
 										</div>
