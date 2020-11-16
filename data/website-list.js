@@ -15,7 +15,7 @@ module.exports = [
 	'https://dhemos.com/',
 	'https://estudiojuridicodipietro.com/',
 	'https://guiablend.com/',
-	'https://mpbconsultores.com/',
+	//'https://mpbconsultores.com/',
 	'https://piuquenchocolates.com/',
 	'https://productosmardegan.com/',
 	'https://qatarpremiumwine.com/',

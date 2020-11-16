@@ -4,14 +4,21 @@ const extract = require('meta-extractor')
 const list = require('./data/website-list')
 
 exports.sourceNodes = async ({ actions: { createNode }, createNodeId, createContentDigest }) => {
-	const opengraph = []
+	console.log('START FETCH...')
 
-	list.forEach(site => {
-		const query = extract({ uri: site }).then(res => {
-			return { ...res, imagesList: res.images ? [...res.images] : null, requestUrl: site }
+	const opengraph = list.map(site =>
+		extract({ uri: site }).then(res => {
+			if (res.host) {
+				return {
+					...res,
+					imagesList: res.images ? [...res.images] : null,
+					requestUrl: site,
+				}
+			} else {
+				console.log('------------\nERROR', site)
+			}
 		})
-		opengraph.push(query)
-	})
+	)
 
 	await Promise.all(opengraph)
 		.then(data => {
@@ -26,5 +33,5 @@ exports.sourceNodes = async ({ actions: { createNode }, createNodeId, createCont
 				},
 			})
 		})
-		.catch(err => console.log(err))
+		.catch(err => console.log('PROMISE ERROR', err))
 }

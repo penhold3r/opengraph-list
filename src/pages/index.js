@@ -9,7 +9,7 @@ const IndexPage = () => {
 		openGraph: { sites },
 	} = useStaticQuery(
 		graphql`
-			query {
+			query Sites {
 				openGraph {
 					sites {
 						title
@@ -35,7 +35,10 @@ const IndexPage = () => {
 	useEffect(() => {
 		const defaultBorderColor = getComputedStyle(gridRef.current).getPropertyValue('--border')
 		setBorderColor(defaultBorderColor)
+		//eslint-disable-next-line
 	}, [])
+
+	console.log(sites)
 
 	return (
 		<Layout>
@@ -65,7 +68,7 @@ const IndexPage = () => {
 									className='site-card'
 									key={site.ogSiteName || site.ogTitle || site.title}
 									style={{ borderColor: site.theme_color || borderColor }}>
-									<a href={siteUrl} target='_blank' rel='noopener noreferrer'>
+									<a href={site.requestUrl} target='_blank' rel='noopener noreferrer'>
 										<div className='site-card__image'>
 											<img src={`${imgUrl}`} alt='' />
 										</div>
